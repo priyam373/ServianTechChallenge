@@ -36,4 +36,7 @@ WORKDIR /TechChallengeApp
 COPY conf.toml ./conf.toml
 COPY --from=build /TechChallengeApp TechChallengeApp
 
-ENTRYPOINT [ "./TechChallengeApp", "serve" ]
+COPY run.sh ./run.sh
+RUN chmod +x run.sh
+
+ENTRYPOINT [ "./run.sh" ]
