@@ -1,0 +1,16 @@
+version: "3"
+services:
+  techchallengeapp:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+  postgres:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: app
+    ports:
+      - 5432:5432
